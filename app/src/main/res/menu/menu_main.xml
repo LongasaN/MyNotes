@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.nina.mynotes.MainActivity">
+    <!-- Created the home menu in exchange for settings -->
+    <item
+        android:id="@+id/action_home"
+        android:orderInCategory="1"
+        android:title="@string/home"
+        app:showAsAction="never" />
+
+    <!-- Created the create notes in the menu -->
+    <item
+        android:id="@+id/action_create_notes"
+        android:orderInCategory="2"
+        android:title="@string/action_create_notes"
+        app:showAsAction="never" />
+</menu>
