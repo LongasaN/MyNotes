@@ -9,11 +9,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
     // Declare intent
     Intent intent;
+    // Declare DBHandler
+    DBHandler dbHandler;
+    MyNotes myNotesAdapter;
+    // Reference the list view
+    ListView notesListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +27,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Initialized the activity
+        dbHandler = new DBHandler(this, null);
+        notesListView = (ListView) findViewById(R.id.notesListView);
+        myNotesAdapter = new MyNotes(this, dbHandler.getMyNotes(), 0);
+
+        // Set the Cursor Adapter
+        notesListView.setAdapter(myNotesAdapter);
+
+        // Setting a subtitle to display the number of notes the user
+            // has written in the App
+        toolbar.setSubtitle("Notes: " + dbHandler.getNotesTotal());
 
     }
 
@@ -38,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // Method for opening the pages of the app
+    // This Override Method is used for opening the pages of the app
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){

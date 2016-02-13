@@ -55,7 +55,7 @@ public class CreateNotes extends AppCompatActivity {
         // Set the variables for the method
         String title = titleEditText.getText().toString();
         String text = textEditText.getText().toString();
-        String date = simpleDateFormat.format(calendar).toString();
+        String date = simpleDateFormat.format(calendar.getTime()).toString();
 
         //Validates if there is something in the edit text box
         if (title.trim().equals("") || text.trim().equals(""))
