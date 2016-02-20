@@ -1,0 +1,25 @@
+<!-- Created main menu for the create notes main activity -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.nina.mynotes.ViewNote">
+    <!-- Changed the icon from add to delete the selected note -->
+    <item
+        android:id="@+id/delete_notes"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/action_delete_notes"
+        android:onClick="deleteNotes"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_home"
+        android:orderInCategory="1"
+        android:title="@string/home"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_create_notes"
+        android:orderInCategory="2"
+        android:title="@string/action_create_notes"
+        app:showAsAction="never" />
+</menu>

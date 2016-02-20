@@ -94,4 +94,34 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return dbString;
     }
+
+        // This method gets the information from the MyNotes database
+            // for the Notes object
+    public Notes getNotes (Integer notesId){
+
+        Notes notes = null;
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_MY_NOTES +
+                " WHERE " + COLUMN_NOTE_ID + " = " + notesId;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        int numItems = cursor.getCount();
+
+        if (numItems >=1){
+            cursor.moveToFirst();
+                // This retrieves the date from the Database
+            notes = new Notes(
+                    (cursor.getInt(cursor.getColumnIndex("_id"))),
+                    (cursor.getString(cursor.getColumnIndex("title"))),
+                    (cursor.getString(cursor.getColumnIndex("text"))),
+                    (cursor.getString(cursor.getColumnIndex("date")))
+            );
+        }
+
+        db.close();
+        return notes;
+    }
 }

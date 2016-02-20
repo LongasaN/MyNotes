@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +41,17 @@ public class MainActivity extends AppCompatActivity {
             // has written in the App
         toolbar.setSubtitle("Notes: " + dbHandler.getNotesTotal());
 
+        // This method is evoked when the note is selected
+        notesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                intent = new Intent(MainActivity.this, ViewNote.class);
+                intent.putExtra("_id", id);
+                startActivity(intent);
+
+            }
+        });
     }
 
     // Java Method where another window opens

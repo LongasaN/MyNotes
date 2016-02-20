@@ -4,8 +4,12 @@
     <string name="action_create_notes">Create Notes</string>
     <string name="title_activity_create_notes">Create Notes</string>
     <string name="title">Title</string>
-    <string name="text">Text</string>
+    <string name="text">Notes</string>
     <string name="home">Home</string>
+    <string name="title_activity_view_note">View Note</string>
+    <string name="action_delete_notes">Delete Notes</string>
+    <string name="notes">Notes</string>
+    <string name="date">Date</string>
 </resources>
 
     <!-- Changes: removed action_settings string -->
