@@ -124,4 +124,17 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return notes;
     }
+
+        // This method deleted the selected MyNotes information
+            // from the database
+    public void deleteNotes (Integer listId){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        String query = "DELETE FROM " + TABLE_MY_NOTES +
+                " WHERE " + COLUMN_NOTE_ID + " = " + listId;
+
+        db.execSQL(query);
+        db.close();
+    }
 }
